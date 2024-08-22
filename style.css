@@ -1,0 +1,207 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #333333;
+    --message-bg: #ffffff;
+    --user-message-bg: #e3f2fd;
+    --chat-container-bg: #ffffff;
+    --input-bg: #f8f9fa;
+    --input-border: #ced4da;
+    --send-button-bg: #007bff;
+    --send-button-color: #ffffff;
+}
+
+[data-theme="dark"] {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --message-bg: #1e1e1e;
+    --user-message-bg: #0d47a1;
+    --chat-container-bg: #1e1e1e;
+    --input-bg: #2c2c2c;
+    --input-border: #444444;
+    --send-button-bg: #0d6efd;
+    --send-button-color: #ffffff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.chat-container {
+    max-width: 800px;
+    width: 90%;
+    background-color: var(--chat-container-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-toggle input {
+    display: none;
+}
+
+.dark-mode-toggle label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+.dark-mode-toggle label:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode-toggle i {
+    font-size: 1.2rem;
+    margin: 0 5px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.dark-mode-toggle .fa-sun {
+    display: none;
+}
+
+[data-theme="dark"] .dark-mode-toggle .fa-sun {
+    display: inline-block;
+}
+
+[data-theme="dark"] .dark-mode-toggle .fa-moon {
+    display: none;
+}
+
+.chat-messages {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message {
+    align-items: flex-end;
+}
+
+.user-message .message-content {
+    background-color: var(--user-message-bg);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.bot-message {
+    align-items: flex-start;
+}
+
+.bot-message .message-content {
+    background-color: var(--message-bg);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: var(--chat-container-bg);
+    border-top: 1px solid var(--input-border);
+}
+
+#message-input {
+    flex-grow: 1;
+    border: 1px solid var(--input-border);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+#send-button {
+    background-color: var(--send-button-bg);
+    color: var(--send-button-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .chat-container {
+        width: 100%;
+    }
+
+    .chat-header h2 {
+        font-size: 16px;
+    }
+
+    .chat-header img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dark-mode-toggle i {
+        font-size: 1rem;
+    }
+
+    .user-message .message-content,
+    .bot-message .message-content {
+        max-width: 80%;
+    }
+}
