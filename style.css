@@ -2,8 +2,8 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: #121212;
+    color: #e0e0e0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,18 +23,19 @@ body {
     width: 90%;
     background-color: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .chat-header {
-    background-color: #0d6efd;
+    background-color: #2c2c2c;
     color: white;
     padding: 15px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #333;
 }
 
 .chat-header img {
@@ -66,8 +67,8 @@ body {
 }
 
 .user-message .message-content {
-    background-color: #0d47a1;
-    color: #fff;
+    background-color: #333;
+    color: #e0e0e0;
     padding: 10px 15px;
     border-radius: 10px;
     max-width: 70%;
@@ -79,7 +80,7 @@ body {
 
 .bot-message .message-content {
     background-color: #2c2c2c;
-    color: #fff;
+    color: #e0e0e0;
     padding: 10px 15px;
     border-radius: 10px;
     max-width: 70%;
@@ -90,7 +91,7 @@ body {
     display: flex;
     padding: 15px;
     background-color: #1e1e1e;
-    border-top: 1px solid #444;
+    border-top: 1px solid #333;
 }
 
 #message-input {
@@ -100,12 +101,12 @@ body {
     border-radius: 20px;
     font-size: 14px;
     background-color: #2c2c2c;
-    color: #fff;
+    color: #e0e0e0;
 }
 
 #send-button {
-    background-color: #0d6efd;
-    color: #fff;
+    background-color: #333;
+    color: #e0e0e0;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -115,7 +116,7 @@ body {
 }
 
 #send-button:hover {
-    opacity: 0.9;
+    background-color: #444;
 }
 
 footer {
@@ -123,13 +124,13 @@ footer {
 }
 
 footer a {
-    color: #fff;
+    color: #888;
     font-size: 1.5rem;
     transition: color 0.3s;
 }
 
 footer a:hover {
-    color: #0d6efd;
+    color: #e0e0e0;
 }
 
 @media (max-width: 600px) {
