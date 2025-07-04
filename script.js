@@ -1,7 +1,6 @@
 const chatMessages = document.querySelector('.chat-messages');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
-const moonPhaseContainer = document.getElementById('moon-phase');
 
 // Function to add a message to the chat
 function addMessage(message, isUser = false) {
@@ -42,21 +41,6 @@ async function sendMessage() {
     }
 }
 
-// Function to get the moon phase
-async function getMoonPhase() {
-    try {
-        // NOTE: This API is a placeholder and may not be reliable.
-        // For a real application, consider a more robust weather or astronomy API.
-        const response = await fetch('https://api.farmsense.net/v1/moonphases/?d=1699228800');
-        const data = await response.json();
-        const phase = data[0].Phase;
-        moonPhaseContainer.textContent = `Moon Phase: ${phase}`;
-    } catch (error) {
-        console.error('Error fetching moon phase:', error);
-        moonPhaseContainer.textContent = 'Could not fetch moon phase';
-    }
-}
-
 // Event listeners
 sendButton.addEventListener('click', sendMessage);
 messageInput.addEventListener('keydown', (event) => {
@@ -65,6 +49,5 @@ messageInput.addEventListener('keydown', (event) => {
     }
 });
 
-// Add initial message and get moon phase
+// Add initial message
 addMessage("Hello! How can I assist you today?");
-getMoonPhase();
