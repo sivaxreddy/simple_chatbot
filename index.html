@@ -9,18 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="moon-phase"></div>
     <div class="chat-container">
         <div class="chat-header">
             <img src="https://via.placeholder.com/40" alt="Bot Avatar">
             <h2>ChatBot</h2>
-            <div class="dark-mode-toggle">
-                <input type="checkbox" id="dark-mode" class="dark-mode-checkbox">
-                <label for="dark-mode" class="dark-mode-label">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                    <div class="ball"></div>
-                </label>
-            </div>
         </div>
         <div class="chat-messages" id="chat-messages">
             <!-- Messages will be dynamically added here -->
@@ -30,6 +23,11 @@
             <button id="send-button"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
+    <footer>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-xing"></i>
+        </a>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

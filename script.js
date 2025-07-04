@@ -1,9 +1,7 @@
-// Get the chat messages container
 const chatMessages = document.querySelector('.chat-messages');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
-const darkModeToggle = document.getElementById('dark-mode');
-const html = document.documentElement;
+const moonPhaseContainer = document.getElementById('moon-phase');
 
 // Function to add a message to the chat
 function addMessage(message, isUser = false) {
@@ -44,6 +42,21 @@ async function sendMessage() {
     }
 }
 
+// Function to get the moon phase
+async function getMoonPhase() {
+    try {
+        // NOTE: This API is a placeholder and may not be reliable.
+        // For a real application, consider a more robust weather or astronomy API.
+        const response = await fetch('https://api.farmsense.net/v1/moonphases/?d=1699228800');
+        const data = await response.json();
+        const phase = data[0].Phase;
+        moonPhaseContainer.textContent = `Moon Phase: ${phase}`;
+    } catch (error) {
+        console.error('Error fetching moon phase:', error);
+        moonPhaseContainer.textContent = 'Could not fetch moon phase';
+    }
+}
+
 // Event listeners
 sendButton.addEventListener('click', sendMessage);
 messageInput.addEventListener('keydown', (event) => {
@@ -52,31 +65,6 @@ messageInput.addEventListener('keydown', (event) => {
     }
 });
 
-// Dark mode toggle functionality
-function updateTheme(isDark) {
-    html.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateDarkModeIcon(isDark);
-}
-
-function updateDarkModeIcon(isDark) {
-    const sunIcon = darkModeToggle.nextElementSibling.querySelector('.fa-sun');
-    const moonIcon = darkModeToggle.nextElementSibling.querySelector('.fa-moon');
-    sunIcon.style.display = isDark ? 'inline-block' : 'none';
-    moonIcon.style.display = isDark ? 'none' : 'inline-block';
-}
-
-// Check for saved theme preference or default to user's system preference
-const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('theme');
-
-const initialTheme = savedTheme === 'dark' || (!savedTheme && prefersDarkMode);
-updateTheme(initialTheme);
-darkModeToggle.checked = initialTheme;
-
-darkModeToggle.addEventListener('change', () => {
-    updateTheme(darkModeToggle.checked);
-});
-
-// Add initial message
+// Add initial message and get moon phase
 addMessage("Hello! How can I assist you today?");
+getMoonPhase();
